@@ -1,37 +1,37 @@
+"use client"
 import Image from "next/image";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { Sparkles } from "@/components/ui/sparkles";
+import { MovingBorder } from "@/components/ui/moving-border";
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/components/ui/resizable-navbar";
+import { useState } from "react";
+import { NavbarDemo } from "./navbar";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50">
+    <div className="min-h-screen bg-zinc-950 text-white relative overflow-hidden">
       {/* Navigation */}
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">H</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-800">Hive</span>
-          </div>
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#vision" className="text-gray-600 hover:text-purple-600 transition-colors">Vision</a>
-            <a href="#features" className="text-gray-600 hover:text-purple-600 transition-colors">Features</a>
-            <a href="#join" className="text-gray-600 hover:text-purple-600 transition-colors">Join Waitlist</a>
-            <a href="#contact" className="text-gray-600 hover:text-purple-600 transition-colors">Contact</a>
-          </div>
-          <button className="md:hidden">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </nav>
+      <NavbarDemo/>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-20">
-        <div className="text-center max-w-4xl mx-auto">
+      <section className="container mx-auto px-6 py-20 relative">
+        <BackgroundBeams className="opacity-30" />
+        <div className="text-center max-w-4xl mx-auto relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6">
             Introducing
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> Hive</span>
+            <Sparkles className="inline-block ml-2">
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"> Hive</span>
+            </Sparkles>
           </h1>
           <p className="text-2xl text-gray-600 mb-4">
             The future of women's safety technology
@@ -40,9 +40,11 @@ export default function Home() {
             A revolutionary app concept designed to keep women safe and connected through intelligent location sharing, emergency alerts, and trusted networks.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all">
-              Join the Waitlist
-            </button>
+            <Sparkles>
+              <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all">
+                Join the Waitlist
+              </button>
+            </Sparkles>
             <button className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-600 hover:text-white transition-all">
               Learn More
             </button>
@@ -53,7 +55,9 @@ export default function Home() {
       {/* Vision Section */}
       <section id="vision" className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Vision</h2>
+          <Sparkles>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Vision</h2>
+          </Sparkles>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We believe every woman deserves to feel safe and empowered. Hive is more than just an app – it's a movement towards creating safer communities and stronger support networks.
           </p>
@@ -109,14 +113,17 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Envisioned Features</h2>
+          <Sparkles>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Envisioned Features</h2>
+          </Sparkles>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Here's what we're planning to build for the ultimate women's safety experience
           </p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <MovingBorder className="rounded-2xl">
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
             <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mb-6">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -127,7 +134,8 @@ export default function Home() {
             <p className="text-gray-600">
               Intelligent location tracking that shares your whereabouts with trusted contacts automatically, with customizable privacy settings.
             </p>
-          </div>
+            </div>
+          </MovingBorder>
 
           <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
             <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mb-6">
@@ -193,26 +201,31 @@ export default function Home() {
 
       {/* Join Waitlist Section */}
       <section id="join" className="container mx-auto px-6 py-20">
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">Be Part of the Movement</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join our waitlist to be among the first to experience Hive when we launch. Help us shape the future of women's safety technology.
-          </p>
-          
-          <div className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input 
-                type="email" 
-                placeholder="Enter your email address"
-                className="flex-1 px-6 py-4 rounded-full text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-white"
-              />
-              <button className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap">
-                Join Waitlist
-              </button>
-            </div>
-            <p className="text-sm mt-4 opacity-90">
-              We'll notify you when Hive is ready and keep you updated on our progress.
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-center text-white relative overflow-hidden">
+          <BackgroundBeams className="opacity-20" />
+          <div className="relative z-10">
+            <Sparkles>
+              <h2 className="text-4xl font-bold mb-6">Be Part of the Movement</h2>
+            </Sparkles>
+                        <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Join our waitlist to be among the first to experience Hive when we launch. Help us shape the future of women's safety technology.
             </p>
+            
+            <div className="max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email address"
+                  className="flex-1 px-6 py-4 rounded-full text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-white"
+                />
+                <button className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap">
+                  Join Waitlist
+                </button>
+              </div>
+              <p className="text-sm mt-4 opacity-90">
+                We'll notify you when Hive is ready and keep you updated on our progress.
+              </p>
+            </div>
           </div>
         </div>
       </section>
