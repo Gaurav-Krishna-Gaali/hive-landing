@@ -20,13 +20,12 @@ import FormSection from "@/components/FormSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+    <div className="min-h-screen  text-white relative overflow-hidden">
       {/* Navigation */}
       <NavbarDemo/>
 
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20 relative">
-        <BackgroundBeams className="opacity-30" />
         <div className="text-center max-w-4xl mx-auto relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Introducing
@@ -123,7 +122,6 @@ export default function Home() {
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <MovingBorder className="rounded-2xl">
             <div className="bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-800">
             <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full flex items-center justify-center mb-6">
               <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,7 +134,6 @@ export default function Home() {
               Intelligent location tracking that shares your whereabouts with trusted contacts automatically, with customizable privacy settings.
             </p>
             </div>
-          </MovingBorder>
 
           <div className="bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-800">
             <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full flex items-center justify-center mb-6">
