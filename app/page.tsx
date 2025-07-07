@@ -17,13 +17,13 @@ import {
 import { useState } from "react";
 import { NavbarDemo } from "./navbar";
 import FormSection from "@/components/FormSection";
+import AppFlowSection from "@/components/AppFlowSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen  text-white relative overflow-hidden">
+    <div className="min-h-screen   text-white relative overflow-hidden">
       {/* Navigation */}
       <NavbarDemo/>
-
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20 relative">
         <div className="text-center max-w-4xl mx-auto relative z-10">
@@ -230,6 +230,9 @@ export default function Home() {
 
       {/* Form Section */}
       <FormSection />
+
+      {/* App Flow Section */}
+      <AppFlowSection />
 
       {/* Footer */}
       <footer id="contact" className="container mx-auto px-6 py-12">
