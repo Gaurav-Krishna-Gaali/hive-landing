@@ -28,27 +28,27 @@ export default function Home() {
       <section className="container mx-auto px-6 py-20 relative">
         <div className="text-center max-w-4xl mx-auto relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Introducing
+            Your Neighborhood
             <Sparkles className="inline-block ml-2">
-              <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent"> Hive</span>
+              <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent"> HIVE</span>
             </Sparkles>
           </h1>
-          <p className="text-2xl text-gray-300 mb-4">
-            The future of women's safety technology
+          <p className="text-3xl md:text-4xl text-gray-300 mb-4 font-semibold">
+            Where neighbors become first responders
           </p>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            A revolutionary app concept designed to keep women safe and connected through intelligent location sharing, emergency alerts, and trusted networks.
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            When seconds matter, your community responds faster than police. Hive creates a ripple effect - starting with your closest neighbors and expanding outward until help arrives.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Sparkles>
-              <button className="bg-gradient-to-r from-yellow-500 to-yellow-400 text-black px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all">
-                Join the Waitlist
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Sparkles>
+                <button className="bg-gradient-to-r from-yellow-500 to-yellow-400 text-black px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all">
+                  Join the Movement
+                </button>
+              </Sparkles>
+              <button className="border-2 border-yellow-500 text-yellow-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-500 hover:text-black transition-all">
+                See How It Works
               </button>
-            </Sparkles>
-            <button className="border-2 border-yellow-500 text-yellow-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-500 hover:text-black transition-all">
-              Learn More
-            </button>
-          </div>
+            </div>
         </div>
       </section>
 
@@ -129,9 +129,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Hyperlocal SOS</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Ripple Effect SOS</h3>
             <p className="text-gray-300">
-              Instantly alert neighbors within 200 meters who can respond faster than police. Your community becomes your first line of defense.
+              Instantly alert your closest neighbors first, then expand outward in a ripple effect until responders are found. Your community becomes your first line of defense.
             </p>
             </div>
 
@@ -165,9 +165,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Response Time Tracking</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Dynamic Range Response</h3>
             <p className="text-gray-300">
-              See exactly how many responders are nearby and their estimated arrival times. Know help is coming within seconds, not minutes.
+              Watch the ripple expand in real-time as Hive finds the closest available responders. See exactly how many people are responding and their arrival times.
             </p>
           </div>
 

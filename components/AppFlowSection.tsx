@@ -8,11 +8,11 @@ const steps = [
   },
   {
     img: "/flow2.png",
-    caption: "With trembling fingers, Sarah sent an SOS distress signal through the Hive app. Within seconds, the network sprang into action!",
+    caption: "With trembling fingers, Sarah sent an SOS distress signal through the Hive app. The ripple effect began - starting with her closest neighbors and expanding outward.",
   },
   {
     img: "/flow3.png",
-    caption: "The hyperlocal community rallied together - nearby residents, shop owners, and passersby coordinated the response. Some started walking toward Sarah while others called emergency services as backup.",
+    caption: "The ripple reached 10 community members within 200 meters who immediately responded. Nearby residents, shop owners, and passersby coordinated the response while others called emergency services as backup.",
   },
   {
     img: "/flow4.png",
