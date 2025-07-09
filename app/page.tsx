@@ -53,7 +53,7 @@ export default function Home() {
       </section>
 
       {/* Vision Section */}
-      <section id="vision" className="container mx-auto px-6 py-20">
+      {/* <section id="vision" className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <Sparkles>
             <h2 className="text-4xl font-bold text-white mb-4">Our Vision</h2>
@@ -108,16 +108,16 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Features Section */}
       <section id="features" className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <Sparkles>
-            <h2 className="text-4xl font-bold text-white mb-4">Envisioned Features</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Hyperlocal Safety Features</h2>
           </Sparkles>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Here's what we're planning to build for the ultimate women's safety experience
+            Where neighbors become first responders - faster than traditional emergency services
           </p>
         </div>
         
@@ -129,9 +129,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Smart Location Sharing</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Hyperlocal SOS</h3>
             <p className="text-gray-300">
-              Intelligent location tracking that shares your whereabouts with trusted contacts automatically, with customizable privacy settings.
+              Instantly alert neighbors within 200 meters who can respond faster than police. Your community becomes your first line of defense.
             </p>
             </div>
 
@@ -141,9 +141,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Emergency SOS</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Community Response Network</h3>
             <p className="text-gray-300">
-              One-tap emergency system that instantly alerts your safety network and emergency services with your exact location and situation.
+              Real-time coordination between nearby residents, shop owners, and passersby. Multiple responders can approach from different directions simultaneously.
             </p>
           </div>
 
@@ -153,9 +153,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Safety Network</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Neighbor Verification</h3>
             <p className="text-gray-300">
-              Build your personal safety circle with family, friends, and trusted contacts who can help when you need them most.
+              Verified community members with background checks. Know that your nearby responders are trusted neighbors, not strangers.
             </p>
           </div>
 
@@ -165,9 +165,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Safe Routes</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Response Time Tracking</h3>
             <p className="text-gray-300">
-              AI-powered route suggestions that prioritize well-lit, populated areas and avoid potentially unsafe zones.
+              See exactly how many responders are nearby and their estimated arrival times. Know help is coming within seconds, not minutes.
             </p>
           </div>
 
@@ -177,9 +177,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Community Alerts</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Backup Emergency Services</h3>
             <p className="text-gray-300">
-              Real-time safety alerts from the community about incidents in your area, helping you stay informed and aware.
+              While neighbors respond immediately, Hive automatically contacts police and emergency services as backup support.
             </p>
           </div>
 
