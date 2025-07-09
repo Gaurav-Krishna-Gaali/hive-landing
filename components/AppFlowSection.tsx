@@ -4,23 +4,23 @@ import { motion } from "framer-motion";
 const steps = [
   {
     img: "/flow1.png",
-    caption: "User feels unsafe and opens the Hive app to send an SOS alert.",
+    caption: "Sarah was returning late from her night shift at the hospital when she noticed someone following her through a dark alley. She quickly pulled out her phone and opened the Hive app.",
   },
   {
     img: "/flow2.png",
-    caption: "The Hive network is instantly notified and nearby users are alerted.",
+    caption: "With trembling fingers, Sarah sent an SOS distress signal through the Hive app. Within seconds, the network sprang into action!",
   },
   {
     img: "/flow3.png",
-    caption: "Community members respond and help is coordinated in real time.",
+    caption: "The hyperlocal community rallied together - nearby residents, shop owners, and passersby coordinated the response. Some started walking toward Sarah while others called emergency services as backup.",
   },
   {
     img: "/flow4.png",
-    caption: "The user can see help approaching and feels safer with Hive.",
+    caption: "Sarah could see on her app that help was approaching from multiple directions - her actual neighbors who live just blocks away. The hyperlocal response made her feel instantly safer.",
   },
   {
     img: "/flow5.png",
-    caption: "Hive keeps everyone connected and protected in the community.",
+    caption: "Thanks to Hive's hyperlocal approach, Sarah made it home safely. The community proved that nearby neighbors are often the fastest first responders when seconds matter most.",
   },
 ];
 
