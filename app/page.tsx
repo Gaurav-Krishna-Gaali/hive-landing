@@ -25,8 +25,9 @@ export default function Home() {
       {/* Navigation */}
       <NavbarDemo/>
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-20 relative">
-        <div className="text-center max-w-4xl mx-auto relative z-10">
+      <section className="min-h-screen flex items-center justify-center relative">
+        <BackgroundBeams className="opacity-30" />
+        <div className="text-center max-w-4xl mx-auto relative z-10 px-6">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Your Neighborhood
             <Sparkles className="inline-block ml-2">
