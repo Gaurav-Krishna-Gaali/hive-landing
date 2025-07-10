@@ -28,25 +28,21 @@ export default function Home() {
       <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-gray-900 via-black to-gray-900">
         <BackgroundBeams className="opacity-40" />
         {/* <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-orange-500/10"></div> */}
-        <div className="text-center max-w-5xl mx-auto relative z-10 px-6">
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tight">
+        <div className="text-center max-w-6xl mx-auto relative z-10 px-6">
+                    <h1 className="hero-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white mb-6 md:mb-8">
             Your Neighborhood
-            <Sparkles className="inline-block ml-4">
-              <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-300 bg-clip-text text-transparent animate-pulse"> HIVE</span>
-            </Sparkles>
+            <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-300 bg-clip-text text-transparent animate-pulse"> HIVE</span>
           </h1>
-          <p className="text-4xl md:text-5xl text-gray-200 mb-6 font-bold tracking-wide">
+          <p className="hero-subheading text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-200 mb-4 md:mb-6">
             Where neighbors become <span className="text-yellow-400">first responders</span>
           </p>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+          <p className="hero-description text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed">
             When seconds matter, your community responds faster than police. Hive creates a ripple effect - starting with your closest neighbors and expanding outward until help arrives.
           </p>
                       <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Sparkles>
                 <button className="bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-400 text-black px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 shadow-lg">
                   Join the Movement
                 </button>
-              </Sparkles>
               <button className="border-2 border-yellow-500 text-yellow-500 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-yellow-500 hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5">
                 See How It Works
               </button>
@@ -115,9 +111,7 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <Sparkles>
-            <h2 className="text-4xl font-bold text-white mb-4">Hyperlocal Safety Features</h2>
-          </Sparkles>
+            <h2 className="font-heading text-4xl font-bold text-white mb-4">Hyperlocal Safety Features</h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Where neighbors become first responders - faster than traditional emergency services
           </p>
@@ -205,7 +199,7 @@ export default function Home() {
           <BackgroundBeams className="opacity-20" />
           <div className="relative z-10">
             <Sparkles>
-              <h2 className="text-4xl font-bold mb-6">Be Part of the Movement</h2>
+              <h2 className="font-heading text-4xl font-bold mb-6">Be Part of the Movement</h2>
             </Sparkles>
                         <p className="text-xl mb-8 max-w-2xl mx-auto">
               Join our waitlist to be among the first to experience Hive when we launch. Help us shape the future of women's safety technology.
