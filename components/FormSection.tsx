@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon, Check, User, Phone, Mail, Heart, Shield, Users, Sparkles } from "lucide-react";
+import { CalendarIcon, Check, User, Phone, Mail, Heart, Shield, Users } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -20,6 +20,7 @@ const FormSection = () => {
     fullName: '',
     phoneNumber: '',
     dateOfBirth: null as Date | null,
+    gender: '',
     occupation: '',
     role: '',
     email: '',
@@ -40,6 +41,7 @@ const FormSection = () => {
         full_name: formData.fullName,
         phone_number: formData.phoneNumber,
         date_of_birth: formData.dateOfBirth ? format(formData.dateOfBirth, 'yyyy-MM-dd') : null,
+        gender: formData.gender || null,
         occupation: formData.occupation || null,
         role: formData.role || null,
         email: formData.email || null,
@@ -84,7 +86,7 @@ const FormSection = () => {
   if (isSubmitted) {
     return (
       <section id="form-section" className="min-h-screen flex items-center justify-center px-4 py-12 relative overflow-hidden">
-        <BackgroundBeams className="opacity-30" />
+        <BackgroundBeams className="opacity-15 md:opacity-30" />
         <div className="max-w-2xl mx-auto text-center space-y-8 animate-fade-in relative z-10">
           <div className="relative">
             <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full flex items-center justify-center mx-auto shadow-2xl animate-pulse">
@@ -93,11 +95,9 @@ const FormSection = () => {
             <div className="absolute -inset-4 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full opacity-20 animate-ping"></div>
           </div>
           <div className="space-y-4">
-            <Sparkles>
               <h2 className="text-5xl font-bold text-white bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
                 Welcome to the Movement!
               </h2>
-            </Sparkles>
             <p className="text-xl text-gray-300 leading-relaxed">
               Thank you for joining Hive. Together, we're building a safer world for all women.
             </p>
@@ -119,7 +119,7 @@ const FormSection = () => {
 
   return (
     <section id="form-section" className="min-h-screen px-4 py-12 relative overflow-hidden">
-      <BackgroundBeams className="opacity-20" />
+              <BackgroundBeams className="opacity-10 md:opacity-20" />
       <div className="max-w-4xl mx-auto space-y-12 relative z-10">
         {/* Header Section */}
         <div className="text-center space-y-6">
@@ -131,12 +131,10 @@ const FormSection = () => {
               <div className="absolute -inset-2 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full opacity-30 animate-pulse"></div>
             </div>
           </div>
-          <Sparkles>
             <h2 className="text-5xl md:text-6xl font-bold text-white">
               Every Step Should Feel 
               <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent"> Safe</span>
             </h2>
-          </Sparkles>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             If you'd like to be a part of this movement — as a supporter, volunteer, or early community member — fill in your details below.
           </p>
@@ -220,10 +218,29 @@ const FormSection = () => {
                         selected={formData.dateOfBirth || undefined} 
                         onSelect={date => handleInputChange('dateOfBirth', date)} 
                         initialFocus 
-                        className="pointer-events-auto" 
+                        className="pointer-events-auto text-white" 
                       />
                     </PopoverContent>
                   </Popover>
+                </div>
+
+                {/* Gender */}
+                <div className="space-y-3 group">
+                  <Label className="text-sm font-semibold text-gray-300 flex items-center gap-2">
+                    <User className="w-4 h-4 text-yellow-400" />
+                    Gender
+                  </Label>
+                  <Select value={formData.gender} onValueChange={value => handleInputChange('gender', value)} disabled={isSubmitting}>
+                    <SelectTrigger className="bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300">
+                      <SelectValue placeholder="Select your gender" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-gray-900 border-gray-600 rounded-xl">
+                      <SelectItem value="female" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Female</SelectItem>
+                      <SelectItem value="male" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Male</SelectItem>
+                      <SelectItem value="non-binary" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Non-binary</SelectItem>
+                      <SelectItem value="prefer-not-to-say" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Prefer not to say</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 {/* Occupation */}
@@ -237,12 +254,12 @@ const FormSection = () => {
                       <SelectValue placeholder="Select your occupation" />
                     </SelectTrigger>
                     <SelectContent className="bg-gray-900 border-gray-600 rounded-xl">
-                      <SelectItem value="student">Student</SelectItem>
-                      <SelectItem value="working-professional">Working Professional</SelectItem>
-                      <SelectItem value="homemaker">Homemaker</SelectItem>
-                      <SelectItem value="self-employed">Self-Employed</SelectItem>
-                      <SelectItem value="retired">Retired</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="student" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Student</SelectItem>
+                      <SelectItem value="working-professional" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Working Professional</SelectItem>
+                      <SelectItem value="homemaker" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Homemaker</SelectItem>
+                      <SelectItem value="self-employed" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Self-Employed</SelectItem>
+                      <SelectItem value="retired" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Retired</SelectItem>
+                      <SelectItem value="other" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
