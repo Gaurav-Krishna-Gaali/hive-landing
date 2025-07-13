@@ -218,7 +218,7 @@ const FormSection = () => {
                         selected={formData.dateOfBirth || undefined} 
                         onSelect={date => handleInputChange('dateOfBirth', date)} 
                         initialFocus 
-                        className="pointer-events-auto" 
+                        className="pointer-events-auto text-white" 
                       />
                     </PopoverContent>
                   </Popover>
