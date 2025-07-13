@@ -1,20 +1,6 @@
 "use client"
 import Image from "next/image";
 import { BackgroundBeams } from "@/components/ui/background-beams";
-import { Sparkles } from "@/components/ui/sparkles";
-import { MovingBorder } from "@/components/ui/moving-border";
-import {
-  Navbar,
-  NavBody,
-  NavItems,
-  MobileNav,
-  NavbarLogo,
-  NavbarButton,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
-import { useState } from "react";
 import { NavbarDemo } from "./navbar";
 import FormSection from "@/components/FormSection";
 import AppFlowSection from "@/components/AppFlowSection";
@@ -26,7 +12,7 @@ export default function Home() {
       <NavbarDemo/>
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-gray-900 via-black to-gray-900">
-        <BackgroundBeams className="opacity-40" />
+        <BackgroundBeams className="opacity-20 md:opacity-40" />
         {/* <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-orange-500/10"></div> */}
         <div className="text-center max-w-6xl mx-auto relative z-10 px-6">
                     <h1 className="hero-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white mb-6 md:mb-8">
@@ -53,9 +39,7 @@ export default function Home() {
       {/* Vision Section */}
       {/* <section id="vision" className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <Sparkles>
             <h2 className="text-4xl font-bold text-white mb-4">Our Vision</h2>
-          </Sparkles>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             We believe every woman deserves to feel safe and empowered. Hive is more than just an app – it's a movement towards creating safer communities and stronger support networks.
           </p>
@@ -196,11 +180,9 @@ export default function Home() {
       {/* Join Waitlist Section */}
       <section id="join" className="container mx-auto px-6 py-20">
         <div className="bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-3xl p-12 text-center text-black relative overflow-hidden">
-          <BackgroundBeams className="opacity-20" />
+          <BackgroundBeams className="opacity-10 md:opacity-20" />
           <div className="relative z-10">
-            <Sparkles>
               <h2 className="font-heading text-4xl font-bold mb-6">Be Part of the Movement</h2>
-            </Sparkles>
                         <p className="text-xl mb-8 max-w-2xl mx-auto">
               Join our waitlist to be among the first to experience Hive when we launch. Help us shape the future of women's safety technology.
             </p>
