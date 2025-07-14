@@ -13,7 +13,6 @@ import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 
 const FormSection = () => {
   const [formData, setFormData] = useState({
@@ -84,7 +83,6 @@ const FormSection = () => {
   if (isSubmitted) {
     return (
       <section id="form-section" className="min-h-screen flex items-center justify-center px-4 py-12 relative overflow-hidden">
-        <BackgroundBeams className="opacity-15 md:opacity-30" />
         <div className="max-w-2xl mx-auto text-center space-y-8 animate-fade-in relative z-10">
           <div className="relative">
             <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full flex items-center justify-center mx-auto shadow-2xl animate-pulse">
@@ -117,7 +115,6 @@ const FormSection = () => {
 
   return (
     <section id="form-section" className="min-h-screen px-4 py-12 relative overflow-hidden">
-              <BackgroundBeams className="opacity-10 md:opacity-20" />
       <div className="max-w-4xl mx-auto space-y-12 relative z-10">
         {/* Header Section */}
         <div className="text-center space-y-6">
