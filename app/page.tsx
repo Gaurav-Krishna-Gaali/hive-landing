@@ -26,71 +26,15 @@ export default function Home() {
             When seconds matter, your community responds faster than police. Hive creates a ripple effect - starting with your closest neighbors and expanding outward until help arrives.
           </p>
                       <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <button className="bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-400 text-black px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 shadow-lg">
+                <a href="#join" className="bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-400 text-black px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 shadow-lg inline-block">
                   Join the Movement
-                </button>
-              <button className="border-2 border-yellow-500 text-yellow-500 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-yellow-500 hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5">
-                See How It Works
-              </button>
+                </a>
+                <a href="#how-it-works" className="border-2 border-yellow-500 text-yellow-500 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-yellow-500 hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 inline-block">
+                  See How It Works
+                </a>
             </div>
         </div>
       </section>
-
-      {/* Vision Section */}
-      {/* <section id="vision" className="container mx-auto px-6 py-20">
-        <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Our Vision</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We believe every woman deserves to feel safe and empowered. Hive is more than just an app – it's a movement towards creating safer communities and stronger support networks.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h3 className="text-3xl font-bold text-white mb-6">The Problem We're Solving</h3>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 bg-red-500 rounded-full flex-shrink-0 mt-1"></div>
-                <p className="text-gray-300">Women often feel unsafe walking alone, especially at night</p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 bg-red-500 rounded-full flex-shrink-0 mt-1"></div>
-                <p className="text-gray-300">Existing safety apps are clunky and not user-friendly</p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 bg-red-500 rounded-full flex-shrink-0 mt-1"></div>
-                <p className="text-gray-300">Lack of real-time communication with trusted contacts</p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 bg-red-500 rounded-full flex-shrink-0 mt-1"></div>
-                <p className="text-gray-300">No seamless integration between safety and daily life</p>
-              </div>
-            </div>
-          </div>
-          
-          <div>
-            <h3 className="text-3xl font-bold text-white mb-6">Our Solution</h3>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 bg-green-500 rounded-full flex-shrink-0 mt-1"></div>
-                <p className="text-gray-300">Intuitive, beautiful interface that feels natural to use</p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 bg-green-500 rounded-full flex-shrink-0 mt-1"></div>
-                <p className="text-gray-300">One-tap emergency alerts with instant location sharing</p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 bg-green-500 rounded-full flex-shrink-0 mt-1"></div>
-                <p className="text-gray-300">Smart safety network with trusted friends and family</p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 bg-green-500 rounded-full flex-shrink-0 mt-1"></div>
-                <p className="text-gray-300">Seamless integration with daily routines and activities</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Features Section */}
       <section id="features" className="container mx-auto px-6 py-20">
@@ -177,60 +121,65 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Join Waitlist Section */}
-      <section id="join" className="container mx-auto px-6 py-20">
+      {/* App Flow Section */}
+      <div id="how-it-works">
+        <AppFlowSection />
+      </div>
+
+      {/* Form Section */}
+      <div id="join">
+      <FormSection />
+      </div>
+
+            {/* Join Waitlist Section */}
+            <section  className="container mx-auto px-6 py-20">
         <div className="bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-3xl p-12 text-center text-black relative overflow-hidden">
           <BackgroundBeams className="opacity-10 md:opacity-20" />
           <div className="relative z-10">
-              <h2 className="font-heading text-4xl font-bold mb-6">Be Part of the Movement</h2>
-                        <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join our waitlist to be among the first to experience Hive when we launch. Help us shape the future of women's safety technology.
+            <h2 className="font-heading text-4xl font-bold mb-6">Meet the Team</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              The passionate people behind Hive
             </p>
-            
-            <div className="max-w-md mx-auto">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email address"
-                  className="flex-1 px-6 py-4 rounded-full text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-black"
-                />
-                <button className="bg-black text-yellow-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-900 transition-colors whitespace-nowrap">
-                  Join Waitlist
-                </button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
+              {/* Team Member 1 */}
+              <div className="flex flex-col items-center">
+                <img src="https://i.pravatar.cc/150?img=1" alt="Jane Doe" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
+                <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  Jane Doe
+                  <a href="https://linkedin.com/in/janedoe" target="_blank" rel="noopener noreferrer" aria-label="Jane Doe LinkedIn">
+                    <svg className="w-5 h-5 text-blue-700 hover:text-blue-800 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg>
+                  </a>
+                </h3>
+                <p className="text-yellow-600 mb-2">Founder & CEO</p>
               </div>
-              <p className="text-sm mt-4 opacity-90">
-                We'll notify you when Hive is ready and keep you updated on our progress.
-              </p>
+              {/* Team Member 2 */}
+              <div className="flex flex-col items-center">
+                <img src="https://i.pravatar.cc/150?img=2" alt="John Smith" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
+                <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  John Smith
+                  <a href="https://linkedin.com/in/johnsmith" target="_blank" rel="noopener noreferrer" aria-label="John Smith LinkedIn">
+                    <svg className="w-5 h-5 text-blue-700 hover:text-blue-800 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg>
+                  </a>
+                </h3>
+                <p className="text-yellow-600 mb-2">CTO</p>
+              </div>
+              {/* Team Member 3 */}
+              <div className="flex flex-col items-center">
+                <img src="https://i.pravatar.cc/150?img=3" alt="Priya Patel" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
+                <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  Priya Patel
+                  <a href="https://linkedin.com/in/priyapatel" target="_blank" rel="noopener noreferrer" aria-label="Priya Patel LinkedIn">
+                    <svg className="w-5 h-5 text-blue-700 hover:text-blue-800 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg>
+                  </a>
+                </h3>
+                <p className="text-yellow-600 mb-2">Head of Community</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Form Section */}
-      <FormSection />
-
-      {/* App Flow Section */}
-      <AppFlowSection />
-
-      {/* Footer */}
-      <footer id="contact" className="container mx-auto px-6 py-12">
-        <div className="text-center">
-          <div className="flex items-center justify-center space-x-2 mb-6">
-            <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-lg">H</span>
-            </div>
-            <span className="text-2xl font-bold text-white">Hive</span>
-          </div>
-          <p className="text-gray-300 mb-6">
-            Empowering women with safety and connection
-          </p>
-          <div className="flex justify-center space-x-6">
-            <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors">About Us</a>
-            <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors">Contact</a>
-            <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors">Privacy</a>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 }
