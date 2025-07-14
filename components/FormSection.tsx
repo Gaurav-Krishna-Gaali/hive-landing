@@ -210,13 +210,16 @@ const FormSection = () => {
                         {formData.dateOfBirth ? format(formData.dateOfBirth, "PPP") : <span>Pick a date</span>}
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0 bg-gray-900 border-gray-600 rounded-xl" align="start">
+                    <PopoverContent className="w-auto p-0" align="start">
                       <Calendar 
                         mode="single" 
                         selected={formData.dateOfBirth || undefined} 
                         onSelect={date => handleInputChange('dateOfBirth', date)} 
                         initialFocus 
-                        className="pointer-events-auto text-white" 
+                        disabled={{ after: new Date() }}
+                        captionLayout="dropdown"
+                        fromYear={1970}
+                        toYear={new Date().getFullYear()}
                       />
                     </PopoverContent>
                   </Popover>
