@@ -38,8 +38,8 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Learn More</NavbarButton>
-            <NavbarButton variant="primary">Join Waitlist</NavbarButton>
+            <NavbarButton href="#how-it-works" variant="secondary">Learn More</NavbarButton>
+            <NavbarButton href="#join" variant="primary">Join Waitlist</NavbarButton>
           </div>
         </NavBody>
 
@@ -69,6 +69,7 @@ export function NavbarDemo() {
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
+                href="#how-it-works"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="secondary"
                 className="w-full"
@@ -76,6 +77,7 @@ export function NavbarDemo() {
                 Learn More
               </NavbarButton>
               <NavbarButton
+                href="#join"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
