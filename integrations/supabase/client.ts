@@ -1,17 +1,6 @@
-// Simple Supabase client for demo purposes
-// In a real app, you would use the actual Supabase client
+import { createClient } from '@supabase/supabase-js';
 
-export const supabase = {
-  from: (table: string) => ({
-    insert: (data: any[]) => ({
-      select: async () => {
-        // Simulate successful insertion
-        console.log('Simulated Supabase insert:', { table, data });
-        return {
-          data: data,
-          error: null
-        };
-      }
-    })
-  })
-}; 
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey); 
