@@ -179,6 +179,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Footer */}
+      <footer id="contact" className="container mx-auto px-6 py-12">
+        <div className="text-center">
+          <div className="flex items-center justify-center space-x-2 mb-6">
+            <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-lg flex items-center justify-center">
+              <span className="text-black font-bold text-lg">H</span>
+            </div>
+            <span className="text-2xl font-bold text-white">Hive</span>
+          </div>
+          <p className="text-gray-300 mb-6">
+            Empowering women with safety and connection
+          </p>
+          <div className="flex justify-center space-x-6">
+            <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors">About Us</a>
+            <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors">Contact</a>
+            <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors">Privacy</a>
+          </div>
+        </div>
+      </footer>
       
     </div>
   );
