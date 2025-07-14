@@ -36,7 +36,6 @@ const FormSection = () => {
     setIsSubmitting(true);
     
     try {
-      console.log('Submitting form data:', formData);
       const { data, error } = await supabase.from('form_responses').insert([{
         full_name: formData.fullName,
         phone_number: formData.phoneNumber,
@@ -58,7 +57,6 @@ const FormSection = () => {
         return;
       }
 
-      console.log('Form submitted successfully:', data);
       setIsSubmitted(true);
       toast({
         title: "Thank you for joining the movement!",
