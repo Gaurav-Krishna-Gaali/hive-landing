@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { BackgroundBeams } from "@/components/ui/background-beams";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <BackgroundBeams className="fixed inset-0 -z-10" />
         {children}
+        <Analytics/>
       </body>
     </html>
   );
