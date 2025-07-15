@@ -143,36 +143,37 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
               {/* Team Member 1 */}
               <div className="flex flex-col items-center">
-                <img src="https://i.pravatar.cc/150?img=1" alt="Jane Doe" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
+                <img src="/team/gaurav.png" alt="Jane Doe" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
                 <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                  Jane Doe
-                  <a href="https://linkedin.com/in/janedoe" target="_blank" rel="noopener noreferrer" aria-label="Jane Doe LinkedIn">
+                  Gaali Gaurav Krishna
+                  <a href="https://www.linkedin.com/in/gaurav-krishna-gaali-8a2581192/" target="_blank" rel="noopener noreferrer" aria-label="Jane Doe LinkedIn">
                     <svg className="w-5 h-5 text-blue-700 hover:text-blue-800 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg>
                   </a>
                 </h3>
-                <p className="text-yellow-600 mb-2">Founder & CEO</p>
+                <p className="font-bold text-gray-900 mb-2">Software Engineer Specialist <br></br> GE Vernova</p>
               </div>
               {/* Team Member 2 */}
               <div className="flex flex-col items-center">
-                <img src="https://i.pravatar.cc/150?img=2" alt="John Smith" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
+                <img src="/team/satya.png" alt="Satya Aravind Pandavula" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
                 <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                  John Smith
-                  <a href="https://linkedin.com/in/johnsmith" target="_blank" rel="noopener noreferrer" aria-label="John Smith LinkedIn">
+                Satya Aravind Pandavula
+                  <a href="https://www.linkedin.com/in/satya-aravind/" target="_blank" rel="noopener noreferrer" aria-label="John Smith LinkedIn">
                     <svg className="w-5 h-5 text-blue-700 hover:text-blue-800 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg>
                   </a>
                 </h3>
-                <p className="text-yellow-600 mb-2">CTO</p>
+                <p className="font-bold text-gray-900 mb-2">
+                Founder's Office Associate, <br></br> Forum Business Research (India)</p>
               </div>
               {/* Team Member 3 */}
               <div className="flex flex-col items-center">
-                <img src="https://i.pravatar.cc/150?img=3" alt="Priya Patel" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
+                <img src="/team/manisha.png" alt="Manisha Davu" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" width={30} height={30}/>
                 <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                  Priya Patel
-                  <a href="https://linkedin.com/in/priyapatel" target="_blank" rel="noopener noreferrer" aria-label="Priya Patel LinkedIn">
+                Manisha Davu
+                  <a href="https://www.linkedin.com/in/davu-manisha/" target="_blank" rel="noopener noreferrer" aria-label="Priya Patel LinkedIn">
                     <svg className="w-5 h-5 text-blue-700 hover:text-blue-800 transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/></svg>
                   </a>
                 </h3>
-                <p className="text-yellow-600 mb-2">Head of Community</p>
+                <p className="font-bold text-gray-900 mb-2">IIM Indore PGP'26 </p>
               </div>
             </div>
           </div>
