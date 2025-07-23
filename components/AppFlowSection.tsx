@@ -10,7 +10,7 @@ const steps = [
   {
     type: "video",
     src: "videos/sarah_button_press.mp4",
-    caption: "With trembling fingers, Sarah sent an SOS distress signal through the Hive app. The ripple effect began - starting with her closest neighbors and expanding outward.",
+    caption: "With trembling fingers, Sarah sent an SOS distress signal through the Hive app. The ripple effect began - starting with her closest volunteers and expanding outward.",
   },
   {
     type: "video",
@@ -20,7 +20,7 @@ const steps = [
   {
     type: "image",
     src: "/flow4.png",
-    caption: "Sarah could see on her app that help was approaching from multiple directions - her actual neighbors who live just blocks away. The hyperlocal response made her feel instantly safer.",
+    caption: "Sarah could see on her app that help was approaching from multiple directions. The hyperlocal response made her feel instantly safer.",
   },
   {
     type: "image",
