@@ -18,13 +18,13 @@ const steps = [
     caption: "The ripple reached 10 community members within 200 meters who immediately responded. Nearby residents, shop owners, and passersby coordinated the response while others called emergency services as backup.",
   },
   {
-    type: "image",
-    src: "/flow4.png",
+    type: "video",
+    src: "videos/sarah_community.mp4",
     caption: "Sarah could see on her app that help was approaching from multiple directions. The hyperlocal response made her feel instantly safer.",
   },
   {
-    type: "image",
-    src: "/flow5.png",
+    type: "video",
+    src: "videos/hive_app.mp4",
     caption: "Thanks to Hive's hyperlocal approach, Sarah made it home safely. The community proved that nearby neighbors are often the fastest first responders when seconds matter most.",
   },
 ];

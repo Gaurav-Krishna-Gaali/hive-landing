@@ -17,7 +17,7 @@ export default function Home() {
         <div className="text-center max-w-6xl mx-auto relative z-10 px-6">
                     <h1 className="hero-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white mb-6 md:mb-8">
             Introducing
-            <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-300 bg-clip-text text-transparent animate-pulse"> HIVE !</span>
+            <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-300 bg-clip-text text-transparent animate-pulse"> HIVE!</span>
           </h1>
           <p className="hero-subheading text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-200 mb-4 md:mb-6">
             Where neighbors become <span className="text-yellow-400">first responders</span>
