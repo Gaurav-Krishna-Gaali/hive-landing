@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "setup-db": "node scripts/setup-db.js",
+    "check-env": "node scripts/check-env.js",
     "db-push": "npx supabase db push",
     "db-reset": "npx supabase db reset"
   },

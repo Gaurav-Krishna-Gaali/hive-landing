@@ -13,6 +13,7 @@ import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { trackFormSubmission, trackButtonClick, identifyUser } from "@/lib/posthog";
 
 const FormSection = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ const FormSection = () => {
     setIsSubmitting(true);
     
     try {
-      const { data, error } = await supabase.from('form_responses').insert([{
+      const insertData = {
         full_name: formData.fullName,
         phone_number: formData.phoneNumber,
         date_of_birth: formData.dateOfBirth ? format(formData.dateOfBirth, 'yyyy-MM-dd') : null,
@@ -44,16 +45,46 @@ const FormSection = () => {
         role: formData.role || null,
         email: formData.email || null,
         opinion: formData.opinion || null
-      }]).select();
+      };
+      
+      console.log('Attempting to insert data:', insertData);
+      
+      const { data, error } = await supabase.from('form_responses').insert([insertData]).select();
 
       if (error) {
         console.error('Error inserting data:', error);
+        console.error('Error details:', {
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+          code: error.code
+        });
         toast({
           title: "Error submitting form",
-          description: "There was an error submitting your form. Please try again.",
+          description: `Error: ${error.message || 'Unknown error occurred'}`,
           variant: "destructive"
         });
         return;
+      }
+
+      // Track successful form submission
+      trackFormSubmission('hive_signup', {
+        role: formData.role,
+        occupation: formData.occupation,
+        gender: formData.gender,
+        has_email: !!formData.email,
+        has_opinion: !!formData.opinion
+      });
+
+      // Identify user if they provided an email
+      if (formData.email) {
+        identifyUser(formData.email, {
+          name: formData.fullName,
+          phone: formData.phoneNumber,
+          role: formData.role,
+          occupation: formData.occupation,
+          gender: formData.gender
+        });
       }
 
       setIsSubmitted(true);
@@ -334,6 +365,7 @@ const FormSection = () => {
                 type="submit" 
                 className="w-full bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-600 hover:to-yellow-500 text-black py-6 text-lg font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-yellow-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" 
                 disabled={isSubmitting}
+                // onClick={() => trackButtonClick('join_movement_button')}
               >
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">

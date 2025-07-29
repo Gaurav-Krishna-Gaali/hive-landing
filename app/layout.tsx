@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Analytics } from '@vercel/analytics/next';
+import PostHogProvider from "@/components/PostHogProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,10 +31,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.variable} ${outfit.variable} antialiased min-h-screen relative`}
+        suppressHydrationWarning={true}
       >
-        <BackgroundBeams className="fixed inset-0 -z-10" />
-        {children}
-        <Analytics/>
+        <PostHogProvider>
+          <BackgroundBeams className="fixed inset-0 -z-10" />
+          {children}
+          <Analytics/>
+        </PostHogProvider>
       </body>
     </html>
   );

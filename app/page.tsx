@@ -4,6 +4,7 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import { NavbarDemo } from "./navbar";
 import FormSection from "@/components/FormSection";
 import AppFlowSection from "@/components/AppFlowSection";
+import SupabaseTest from "@/components/SupabaseTest";
 
 export default function Home() {
   return (
@@ -197,6 +198,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      
+      {/* Debug Component - Remove in production */}
+      {/* <SupabaseTest /> */}
       
     </div>
   );

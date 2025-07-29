@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { trackVideoInteraction } from "@/lib/posthog";
 
 const steps = [
   {
@@ -55,6 +56,9 @@ export default function AppFlowSection() {
                     loop
                     muted
                     playsInline
+                    onPlay={() => trackVideoInteraction(step.src, 'play', { step_index: idx, step_caption: step.caption })}
+                    onPause={() => trackVideoInteraction(step.src, 'pause', { step_index: idx, step_caption: step.caption })}
+                    onEnded={() => trackVideoInteraction(step.src, 'complete', { step_index: idx, step_caption: step.caption })}
                   />
                 ) : (
                   <Image
