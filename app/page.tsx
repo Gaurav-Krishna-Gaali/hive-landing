@@ -28,7 +28,7 @@ export default function Home() {
           </p>
                       <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a href="#join" className="bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-400 text-black px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 shadow-lg inline-block">
-                  Join the Movement
+                  Join the Mission
                 </a>
                 <a href="#how-it-works" className="border-2 border-yellow-500 text-yellow-500 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-yellow-500 hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 inline-block">
                   See How It Works

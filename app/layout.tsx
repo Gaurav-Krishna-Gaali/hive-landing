@@ -19,7 +19,7 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: "Hive - Your Neighborhood Safety Network",
-  description: "Where neighbors become first responders. Join the movement for safer communities.",
+  description: "Where neighbors become first responders. Join the mission for safer communities.",
 };
 
 export default function RootLayout({

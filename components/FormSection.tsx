@@ -347,7 +347,7 @@ const FormSection = () => {
                   <div className="relative">
                     <Textarea 
                       id="opinion" 
-                      placeholder="Tell us your thoughts, experiences, or why you want to join the movement..." 
+                      placeholder="Tell us your thoughts, experiences, or why you want to join the mission..." 
                       value={formData.opinion} 
                       onChange={e => handleInputChange('opinion', e.target.value)} 
                       className="bg-gray-800/50 border-gray-600 text-white min-h-[120px] rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300 resize-none" 
@@ -375,7 +375,7 @@ const FormSection = () => {
                 ) : (
                   <div className="flex items-center gap-2">
                     <Heart className="w-5 h-5" fill="currentColor" />
-                    Join the Movement
+                    Join the Mission
                   </div>
                 )}
               </Button>
