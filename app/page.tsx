@@ -40,9 +40,9 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
-            <h2 className="font-heading text-4xl font-bold text-white mb-4">Hyperlocal Safety Features</h2>
+            <h2 className="font-heading text-4xl font-bold text-white mb-4">How Hive Protects You</h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Where neighbors become first responders - faster than traditional emergency services
+          Where people nearby become first responders - closest help is the fastest help
           </p>
         </div>
         
@@ -191,11 +191,11 @@ export default function Home() {
           <p className="text-gray-300 mb-6">
             Empowering women with safety and connection
           </p>
-          <div className="flex justify-center space-x-6">
+          {/* <div className="flex justify-center space-x-6">
             <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors">About Us</a>
             <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors">Contact</a>
             <a href="#" className="text-gray-300 hover:text-yellow-400 transition-colors">Privacy</a>
-          </div>
+          </div> */}
         </div>
       </footer>
       
