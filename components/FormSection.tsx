@@ -21,7 +21,7 @@ const FormSection = () => {
     phoneNumber: '',
     dateOfBirth: null as Date | null,
     gender: '',
-    occupation: '',
+    pincode: '',
     role: '',
     email: '',
     opinion: ''
@@ -33,6 +33,44 @@ const FormSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
+    
+    // Form validation
+    if (!formData.fullName.trim()) {
+      toast({
+        title: "Missing Information",
+        description: "Please enter your full name.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    if (!formData.phoneNumber.trim()) {
+      toast({
+        title: "Missing Information",
+        description: "Please enter your phone number.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    if (!formData.pincode.trim() || formData.pincode.length !== 6) {
+      toast({
+        title: "Invalid Pincode",
+        description: "Please enter a valid 6-digit pincode.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    if (!formData.role) {
+      toast({
+        title: "Missing Information",
+        description: "Please select your role.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
@@ -41,7 +79,7 @@ const FormSection = () => {
         phone_number: formData.phoneNumber,
         date_of_birth: formData.dateOfBirth ? format(formData.dateOfBirth, 'yyyy-MM-dd') : null,
         gender: formData.gender || null,
-        occupation: formData.occupation || null,
+        pincode: formData.pincode || null,
         role: formData.role || null,
         email: formData.email || null,
         opinion: formData.opinion || null
@@ -70,7 +108,7 @@ const FormSection = () => {
       // Track successful form submission
       trackFormSubmission('hive_signup', {
         role: formData.role,
-        occupation: formData.occupation,
+        pincode: formData.pincode,
         gender: formData.gender,
         has_email: !!formData.email,
         has_opinion: !!formData.opinion
@@ -82,7 +120,7 @@ const FormSection = () => {
           name: formData.fullName,
           phone: formData.phoneNumber,
           role: formData.role,
-          occupation: formData.occupation,
+          pincode: formData.pincode,
           gender: formData.gender
         });
       }
@@ -104,11 +142,33 @@ const FormSection = () => {
     }
   };
 
+  // Pincode validation function
+  const validatePincode = (pincode: string) => {
+    // Remove any non-digit characters
+    const cleanPincode = pincode.replace(/\D/g, '');
+    
+    // Check if it's exactly 6 digits
+    if (cleanPincode.length > 6) {
+      return cleanPincode.slice(0, 6);
+    }
+    
+    return cleanPincode;
+  };
+
   const handleInputChange = (field: string, value: any) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
+    // Special handling for pincode validation
+    if (field === 'pincode') {
+      const validatedPincode = validatePincode(value);
+      setFormData(prev => ({
+        ...prev,
+        [field]: validatedPincode
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [field]: value
+      }));
+    }
   };
 
   if (isSubmitted) {
@@ -132,12 +192,24 @@ const FormSection = () => {
               We'll keep you updated on our progress and notify you when early access is available.
             </p>
           </div>
-          <div className="flex justify-center">
+          <div className="flex flex-col items-center gap-4">
             <div className="bg-gradient-to-r from-yellow-500 to-yellow-400 p-1 rounded-full">
               <div className="bg-black px-8 py-3 rounded-full">
                 <span className="text-yellow-400 font-semibold">You're now part of the Hive! 🐝</span>
               </div>
             </div>
+            
+            <a 
+              href="https://chat.whatsapp.com/Frl06gV8N8W2UTGhhJwZfc" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-600/25"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+              </svg>
+              Join our WhatsApp Community
+            </a>
           </div>
         </div>
       </section>
@@ -272,25 +344,32 @@ const FormSection = () => {
                   </Select>
                 </div>
 
-                {/* Occupation */}
+                {/* Pincode */}
                 <div className="space-y-3 group">
-                  <Label className="text-sm font-semibold text-gray-300 flex items-center gap-2">
+                  <Label htmlFor="pincode" className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <Shield className="w-4 h-4 text-yellow-400" />
-                    Occupation
+                    Pincode <span className="text-red-400">*</span>
                   </Label>
-                  <Select value={formData.occupation} onValueChange={value => handleInputChange('occupation', value)} disabled={isSubmitting}>
-                    <SelectTrigger className="bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300">
-                      <SelectValue placeholder="Select your occupation" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-gray-900 border-gray-600 rounded-xl">
-                      <SelectItem value="student" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Student</SelectItem>
-                      <SelectItem value="working-professional" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Working Professional</SelectItem>
-                      <SelectItem value="homemaker" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Homemaker</SelectItem>
-                      <SelectItem value="self-employed" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Self-Employed</SelectItem>
-                      <SelectItem value="retired" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Retired</SelectItem>
-                      <SelectItem value="other" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <div className="relative">
+                    <Input 
+                      id="pincode" 
+                      type="text" 
+                      placeholder="Enter 6-digit pincode" 
+                      value={formData.pincode} 
+                      onChange={e => handleInputChange('pincode', e.target.value)} 
+                      className={cn(
+                        "bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300",
+                        formData.pincode.length > 0 && formData.pincode.length !== 6 && "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                      )}
+                      disabled={isSubmitting}
+                      maxLength={6}
+                      required
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 to-yellow-400/0 rounded-xl transition-all duration-300 group-hover:from-yellow-500/10 group-hover:to-yellow-400/10 pointer-events-none"></div>
+                  </div>
+                  {formData.pincode.length > 0 && formData.pincode.length !== 6 && (
+                    <p className="text-red-400 text-xs">Please enter a valid 6-digit pincode</p>
+                  )}
                 </div>
               </div>
 
@@ -300,16 +379,16 @@ const FormSection = () => {
                 <div className="space-y-4">
                   <Label className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <Users className="w-4 h-4 text-yellow-400" />
-                    Your Role
+                    How would you like to join?
                   </Label>
                   <RadioGroup value={formData.role} onValueChange={value => handleInputChange('role', value)} disabled={isSubmitting} className="space-y-3">
                     <div className="flex items-center space-x-3 p-3 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300">
                       <RadioGroupItem value="user" id="user" className="text-yellow-400" />
-                      <Label htmlFor="user" className="text-gray-300 cursor-pointer">I want to use the App for help</Label>
+                      <Label htmlFor="user" className="text-gray-300 cursor-pointer">Join the Women's Safety Circle</Label>
                     </div>
                     <div className="flex items-center space-x-3 p-3 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300">
                       <RadioGroupItem value="volunteer" id="volunteer" className="text-yellow-400" />
-                      <Label htmlFor="volunteer" className="text-gray-300 cursor-pointer">I want to be a volunteer to help</Label>
+                      <Label htmlFor="volunteer" className="text-gray-300 cursor-pointer">Step up as a Guardian</Label>
                     </div>
                     <div className="flex items-center space-x-3 p-3 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300">
                       <RadioGroupItem value="both" id="both" className="text-yellow-400" />
@@ -342,7 +421,7 @@ const FormSection = () => {
                 <div className="space-y-3 group">
                   <Label htmlFor="opinion" className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <Heart className="w-4 h-4 text-yellow-400" />
-                    Share your story :)
+                    Why do you want to join? :)
                   </Label>
                   <div className="relative">
                     <Textarea 
@@ -365,7 +444,7 @@ const FormSection = () => {
                 type="submit" 
                 className="w-full bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-600 hover:to-yellow-500 text-black py-6 text-lg font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-yellow-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" 
                 disabled={isSubmitting}
-                // onClick={() => trackButtonClick('join_movement_button')}
+                onClick={() => trackButtonClick('join_movement_button')}
               >
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">

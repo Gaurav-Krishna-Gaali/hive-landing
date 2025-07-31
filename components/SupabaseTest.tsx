@@ -63,7 +63,7 @@ export default function SupabaseTest() {
         phone_number: "1234567890",
         date_of_birth: null,
         gender: null,
-        occupation: null,
+        pincode: "123456",
         role: "user",
         email: "test@example.com",
         opinion: "Test submission"

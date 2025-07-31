@@ -33,6 +33,7 @@ After running the migration, you can view your `form_responses` table in the Sup
 ## Migration Files
 
 - `20250114000000_create_form_responses.sql` - Creates the main form responses table with all necessary columns and security policies.
+- `20250115000000_replace_occupation_with_pincode.sql` - Replaces occupation column with pincode column.
 
 ## Environment Variables
 
@@ -56,7 +57,7 @@ The `form_responses` table includes:
 - `phone_number` (text, required)
 - `date_of_birth` (date, optional)
 - `gender` (text, optional)
-- `occupation` (text, optional)
+- `pincode` (text, optional) - 6-digit postal code
 - `role` (text, optional)
 - `email` (text, optional)
 - `opinion` (text, optional)
