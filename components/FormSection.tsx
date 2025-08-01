@@ -215,7 +215,7 @@ const FormSection = () => {
               <p className="text-gray-400 text-sm mb-3">Share with others:</p>
               <div className="flex gap-3 justify-center">
                 <a 
-                  href="https://www.linkedin.com/feed/update/urn:li:activity:share/?text=Just%20joined%20Hive!%20🐝%20Where%20neighbors%20become%20first%20responders.%20Join%20the%20movement%20for%20safer%20communities.%20Every%20step%20should%20feel%20safe.%20Check%20it%20out:%20https://hive-safety.vercel.app%20%23HiveCommunity%20%23SafetyForAll%20%23WomenSafety" 
+                  href="https://www.linkedin.com/sharing/share-offsite/?url=https://joinhive.app&title=Just%20joined%20Hive!%20🐝%20Where%20neighbors%20become%20first%20responders&summary=Join%20the%20movement%20for%20safer%20communities.%20Every%20step%20should%20feel%20safe.%20%23HiveCommunity%20%23SafetyForAll%20%23WomenSafety"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-600/25"
@@ -227,7 +227,7 @@ const FormSection = () => {
                 </a>
                 
                 <a 
-                  href="https://twitter.com/intent/tweet?text=Just%20joined%20Hive!%20🐝%20Where%20neighbors%20become%20first%20responders.%20Join%20the%20movement%20for%20safer%20communities.%20Every%20step%20should%20feel%20safe.%20Check%20it%20out:%20https://hive-safety.vercel.app%20%23HiveCommunity%20%23SafetyForAll%20%23WomenSafety" 
+                  href="https://twitter.com/intent/tweet?text=Just%20joined%20Hive!%20🐝%20Where%20neighbors%20become%20first%20responders.%20Join%20the%20movement%20for%20safer%20communities.%20Every%20step%20should%20feel%20safe.%20Check%20it%20out:%20https://joinhive.app%20%23HiveCommunity%20%23SafetyForAll%20%23WomenSafety" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center border-2 border-white gap-2 bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-gray-800/25"
