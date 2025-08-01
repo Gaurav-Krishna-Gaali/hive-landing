@@ -142,7 +142,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
               {/* Team Member 1 */}
               <div className="flex flex-col items-center">
-                <img src="/team/gaurav.png" alt="Jane Doe" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
+                <img src="/team-pics/gaurav-png.jpg" alt="Jane Doe" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
                 <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
                   Gaali Gaurav Krishna
                   <a href="https://www.linkedin.com/in/gaurav-krishna-gaali-8a2581192/" target="_blank" rel="noopener noreferrer" aria-label="Jane Doe LinkedIn">
@@ -153,7 +153,7 @@ export default function Home() {
               </div>
               {/* Team Member 2 */}
               <div className="flex flex-col items-center">
-                <img src="/team/satya.png" alt="Satya Aravind Pandavula" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
+                <img src="/team-pics/satya-png.jpg" alt="Satya Aravind Pandavula" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" />
                 <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
                 Satya Aravind Pandavula
                   <a href="https://www.linkedin.com/in/satya-aravind/" target="_blank" rel="noopener noreferrer" aria-label="John Smith LinkedIn">
@@ -165,7 +165,7 @@ export default function Home() {
               </div>
               {/* Team Member 3 */}
               <div className="flex flex-col items-center">
-                <img src="/team/manisha.png" alt="Manisha Davu" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" width={30} height={30}/>
+                <img src="/team-pics/manisha-png.jpg" alt="Manisha Davu" className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-yellow-400" width={30} height={30}/>
                 <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
                 Manisha Davu
                   <a href="https://www.linkedin.com/in/davu-manisha/" target="_blank" rel="noopener noreferrer" aria-label="Priya Patel LinkedIn">
