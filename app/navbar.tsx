@@ -16,8 +16,8 @@ import { trackButtonClick } from "@/lib/posthog";
 export function NavbarDemo() {
   const navItems = [
     {
-      name: "Vision",
-      link: "#features",
+      name: "How it works?",
+      link: "#how-it-works",
     },
     {
       name: "Pricing",
@@ -39,13 +39,13 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <a 
+            {/* <a 
               href="#how-it-works" 
               className="relative px-4 py-2 text-white hover:text-yellow-400 transition-colors"
               onClick={() => trackButtonClick('learn_more_nav')}
             >
               Learn More
-            </a>
+            </a> */}
             <NavbarButton 
               href="#join" 
               variant="secondary"
@@ -84,7 +84,7 @@ export function NavbarDemo() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <a
+              {/* <a
                 href="#how-it-works"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
@@ -93,7 +93,7 @@ export function NavbarDemo() {
                 className="relative px-4 py-2 text-white hover:text-yellow-400 transition-colors font-medium"
               >
                 How Hive Works
-              </a>
+              </a> */}
               <NavbarButton
                 href="#join"
                 onClick={() => {

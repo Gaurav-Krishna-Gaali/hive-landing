@@ -21,8 +21,7 @@ const PricingSection = () => {
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent"> Free</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            We believe safety is a fundamental right, not a privilege. That's why Hive is completely free now and forever.
-          </p>
+          At Hive, we believe safety is a fundamental right, not a privilege. That’s why our platform is completely free, now and always. We’re committed to keeping it that way by seeking sustainable support through future partnerships.          </p>
         </div>
 
         {/* Pricing Card */}

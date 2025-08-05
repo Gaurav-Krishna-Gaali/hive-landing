@@ -40,10 +40,10 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
-            <h2 className="font-heading text-4xl font-bold text-white mb-4">How Hive Protects You</h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <h2 className="font-heading text-4xl font-bold text-white mb-4"> Fastest help is the closest help</h2>
+          {/* <p className="text-xl text-gray-300 max-w-2xl mx-auto">
           Where people nearby become first responders - the fastest help is the closest help
-          </p>
+          </p> */}
         </div>
         
         <div className="grid md:grid-cols-3 gap-10">
@@ -120,13 +120,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <PricingSection />
 
       {/* App Flow Section */}
       <div id="how-it-works">
         <AppFlowSection />
       </div>
+
+            {/* Pricing Section */}
+            <PricingSection />
+
 
       {/* Form Section */}
       <div id="join">

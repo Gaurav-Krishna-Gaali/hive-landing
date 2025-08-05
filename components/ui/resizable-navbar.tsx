@@ -195,11 +195,12 @@ export const MobileNavMenu = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 backdrop-blur-sm px-4 py-8 shadow-2xl",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-gray-900/95 backdrop-blur-md px-6 py-8 shadow-2xl border border-gray-700/30",
             className,
           )}
         >
@@ -228,12 +229,12 @@ export const NavbarLogo = () => {
   return (
     <a
       href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
+      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
     >
-            <div className="flex items-center justify-center space-x-2 ">
-              <img src="/fghj.png" alt="Hive Logo" className="w-10 h-10 object-contain" />
-              <span className="text-2xl font-bold text-white">Hive</span>
-            </div>
+      <div className="flex items-center justify-center space-x-2">
+        <img src="/fghj.png" alt="Hive Logo" className="w-10 h-10 object-contain" />
+        <span className="text-xl font-bold text-white">Hive</span>
+      </div>
     </a>
   );
 };
