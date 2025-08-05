@@ -184,13 +184,11 @@ export default function Home() {
 
       {/* Footer */}
       <footer id="contact" className="container mx-auto px-6 py-12">
-        <div className="text-center">
-          <div className="flex items-center justify-center space-x-2 mb-6">
-            <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-lg">H</span>
+                  <div className="text-center">
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <img src="/fghj.png" alt="Hive Logo" className="w-16 h-16 object-contain" />
+              <span className="text-3xl font-bold text-white">Hive</span>
             </div>
-            <span className="text-2xl font-bold text-white">Hive</span>
-          </div>
           <p className="text-gray-300 mb-6">
             Empowering women with safety and connection
           </p>

@@ -230,12 +230,10 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <div className="flex items-center justify-center space-x-2">
-        <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-lg flex items-center justify-center">
-          <span className="text-black font-bold text-lg">H</span>
-        </div>
-        <span className="text-2xl font-bold text-white">Hive</span>
-      </div>
+            <div className="flex items-center justify-center space-x-2 ">
+              <img src="/fghj.png" alt="Hive Logo" className="w-10 h-10 object-contain" />
+              <span className="text-2xl font-bold text-white">Hive</span>
+            </div>
     </a>
   );
 };
