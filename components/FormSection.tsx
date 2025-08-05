@@ -26,6 +26,7 @@ const FormSection = () => {
     email: '',
     opinion: ''
   });
+  const [validationErrors, setValidationErrors] = useState<{[key: string]: string}>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -34,38 +35,36 @@ const FormSection = () => {
     e.preventDefault();
     if (isSubmitting) return;
     
-    // Form validation
-    if (!formData.fullName.trim()) {
-      toast({
-        title: "Missing Information",
-        description: "Please enter your full name.",
-        variant: "destructive"
-      });
-      return;
-    }
+    // Clear previous validation errors
+    setValidationErrors({});
     
-    if (!formData.phoneNumber.trim()) {
-      toast({
-        title: "Missing Information",
-        description: "Please enter your phone number.",
-        variant: "destructive"
-      });
-      return;
+    // Form validation
+    const errors: {[key: string]: string} = {};
+    
+    if (!formData.fullName.trim()) {
+      errors.fullName = "Full name is required";
     }
     
     if (!formData.pincode.trim() || formData.pincode.length !== 6) {
-      toast({
-        title: "Invalid Pincode",
-        description: "Please enter a valid 6-digit pincode.",
-        variant: "destructive"
-      });
-      return;
+      errors.pincode = "Please enter a valid 6-digit pincode";
     }
     
     if (!formData.role) {
+      errors.role = "Please select your role";
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = "Please enter a valid email address";
+    }
+    
+    // If there are validation errors, set them and return
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
       toast({
-        title: "Missing Information",
-        description: "Please select your role.",
+        title: "Please fix the errors below",
+        description: "Please fill in all required fields correctly.",
         variant: "destructive"
       });
       return;
@@ -76,9 +75,6 @@ const FormSection = () => {
     try {
       const insertData = {
         full_name: formData.fullName,
-        phone_number: formData.phoneNumber,
-        date_of_birth: formData.dateOfBirth ? format(formData.dateOfBirth, 'yyyy-MM-dd') : null,
-        gender: formData.gender || null,
         pincode: formData.pincode || null,
         role: formData.role || null,
         email: formData.email || null,
@@ -109,7 +105,6 @@ const FormSection = () => {
       trackFormSubmission('hive_signup', {
         role: formData.role,
         pincode: formData.pincode,
-        gender: formData.gender,
         has_email: !!formData.email,
         has_opinion: !!formData.opinion
       });
@@ -118,10 +113,8 @@ const FormSection = () => {
       if (formData.email) {
         identifyUser(formData.email, {
           name: formData.fullName,
-          phone: formData.phoneNumber,
           role: formData.role,
-          pincode: formData.pincode,
-          gender: formData.gender
+          pincode: formData.pincode
         });
       }
 
@@ -156,6 +149,15 @@ const FormSection = () => {
   };
 
   const handleInputChange = (field: string, value: any) => {
+    // Clear validation error for this field when user starts typing/selecting
+    if (validationErrors[field]) {
+      setValidationErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[field];
+        return newErrors;
+      });
+    }
+    
     // Special handling for pincode validation
     if (field === 'pincode') {
       const validatedPincode = validatePincode(value);
@@ -179,7 +181,7 @@ const FormSection = () => {
             <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full flex items-center justify-center mx-auto shadow-2xl animate-pulse">
               <Check className="w-12 h-12 text-white" strokeWidth={3} />
             </div>
-            <div className="absolute -inset-4 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full opacity-20 animate-ping"></div>
+            {/* <div className="absolute -inset-4 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full opacity-20 animate-ping"></div> */}
           </div>
           <div className="space-y-4">
               <h2 className="text-5xl font-bold text-white bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
@@ -215,7 +217,7 @@ const FormSection = () => {
               <p className="text-gray-400 text-sm mb-3">Share with others:</p>
               <div className="flex gap-3 justify-center">
                 <a 
-                  href="https://www.linkedin.com/feed/update/urn:li:activity:share/?text=Just%20joined%20Hive!%20🐝%20Where%20neighbors%20become%20first%20responders.%20Join%20the%20movement%20for%20safer%20communities.%20Every%20step%20should%20feel%20safe.%20Check%20it%20out:%20https://hive-safety.vercel.app%20%23HiveCommunity%20%23SafetyForAll%20%23WomenSafety" 
+                  href="https://www.linkedin.com/sharing/share-offsite/?url=https://joinhive.app&title=Just%20joined%20Hive!%20🐝%20Where%20neighbors%20become%20first%20responders&summary=Join%20the%20movement%20for%20safer%20communities.%20Every%20step%20should%20feel%20safe.%20%23HiveCommunity%20%23SafetyForAll%20%23WomenSafety"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-600/25"
@@ -227,7 +229,7 @@ const FormSection = () => {
                 </a>
                 
                 <a 
-                  href="https://twitter.com/intent/tweet?text=Just%20joined%20Hive!%20🐝%20Where%20neighbors%20become%20first%20responders.%20Join%20the%20movement%20for%20safer%20communities.%20Every%20step%20should%20feel%20safe.%20Check%20it%20out:%20https://hive-safety.vercel.app%20%23HiveCommunity%20%23SafetyForAll%20%23WomenSafety" 
+                  href="https://twitter.com/intent/tweet?text=Just%20joined%20Hive!%20🐝%20Where%20neighbors%20become%20first%20responders.%20Join%20the%20movement%20for%20safer%20communities.%20Every%20step%20should%20feel%20safe.%20Check%20it%20out:%20https://joinhive.app%20%23HiveCommunity%20%23SafetyForAll%20%23WomenSafety" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center border-2 border-white gap-2 bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-gray-800/25"
@@ -281,7 +283,7 @@ const FormSection = () => {
                 <div className="space-y-3 group">
                   <Label htmlFor="fullName" className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <User className="w-4 h-4 text-yellow-400" />
-                    Full Name
+                    Full Name <span className="text-red-400">*</span>
                   </Label>
                   <div className="relative">
                     <Input 
@@ -289,20 +291,26 @@ const FormSection = () => {
                       type="text" 
                       value={formData.fullName} 
                       onChange={e => handleInputChange('fullName', e.target.value)} 
-                      className="bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300" 
+                      className={cn(
+                        "bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300",
+                        validationErrors.fullName && "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                      )}
                       required 
                       disabled={isSubmitting} 
                       placeholder="Enter your full name"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 to-yellow-400/0 rounded-xl transition-all duration-300 group-hover:from-yellow-500/10 group-hover:to-yellow-400/10 pointer-events-none"></div>
                   </div>
+                  {validationErrors.fullName && (
+                    <p className="text-red-400 text-xs">{validationErrors.fullName}</p>
+                  )}
                 </div>
 
                 {/* Phone Number */}
-                <div className="space-y-3 group">
+                {/* <div className="space-y-3 group">
                   <Label htmlFor="phoneNumber" className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <Phone className="w-4 h-4 text-yellow-400" />
-                    Phone Number
+                    Phone Number <span className="text-red-400">*</span>
                   </Label>
                   <div className="relative">
                     <Input 
@@ -310,17 +318,23 @@ const FormSection = () => {
                       type="tel" 
                       value={formData.phoneNumber} 
                       onChange={e => handleInputChange('phoneNumber', e.target.value)} 
-                      className="bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300" 
+                      className={cn(
+                        "bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300",
+                        validationErrors.phoneNumber && "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                      )}
                       required 
                       disabled={isSubmitting} 
                       placeholder="Enter your phone number"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 to-yellow-400/0 rounded-xl transition-all duration-300 group-hover:from-yellow-500/10 group-hover:to-yellow-400/10 pointer-events-none"></div>
                   </div>
-                </div>
+                  {validationErrors.phoneNumber && (
+                    <p className="text-red-400 text-xs">{validationErrors.phoneNumber}</p>
+                  )}
+                </div> */}
 
                 {/* Date of Birth */}
-                <div className="space-y-3 group">
+                {/* <div className="space-y-3 group">
                   <Label className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <CalendarIcon className="w-4 h-4 text-yellow-400" />
                     Date of Birth
@@ -352,10 +366,10 @@ const FormSection = () => {
                       />
                     </PopoverContent>
                   </Popover>
-                </div>
+                </div> */}
 
                 {/* Gender */}
-                <div className="space-y-3 group">
+                {/* <div className="space-y-3 group">
                   <Label className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <User className="w-4 h-4 text-yellow-400" />
                     Gender
@@ -371,6 +385,34 @@ const FormSection = () => {
                       <SelectItem value="prefer-not-to-say" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Prefer not to say</SelectItem>
                     </SelectContent>
                   </Select>
+                </div> */}
+
+                
+                {/* Email */}
+                <div className="space-y-3 group">
+                  <Label htmlFor="email" className="text-sm font-semibold text-gray-300 flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-yellow-400" />
+                    Your email? <span className="text-red-400">*</span>
+                  </Label>
+                  <div className="relative">
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="Enter your email" 
+                      value={formData.email} 
+                      onChange={e => handleInputChange('email', e.target.value)} 
+                      className={cn(
+                        "bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300",
+                        validationErrors.email && "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                      )}
+                      required 
+                      disabled={isSubmitting} 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 to-yellow-400/0 rounded-xl transition-all duration-300 group-hover:from-yellow-500/10 group-hover:to-yellow-400/10 pointer-events-none"></div>
+                  </div>
+                  {validationErrors.email && (
+                    <p className="text-red-400 text-xs">{validationErrors.email}</p>
+                  )}
                 </div>
 
                 {/* Pincode */}
@@ -388,7 +430,7 @@ const FormSection = () => {
                       onChange={e => handleInputChange('pincode', e.target.value)} 
                       className={cn(
                         "bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300",
-                        formData.pincode.length > 0 && formData.pincode.length !== 6 && "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                        (formData.pincode.length > 0 && formData.pincode.length !== 6) || validationErrors.pincode ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""
                       )}
                       disabled={isSubmitting}
                       maxLength={6}
@@ -396,9 +438,9 @@ const FormSection = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 to-yellow-400/0 rounded-xl transition-all duration-300 group-hover:from-yellow-500/10 group-hover:to-yellow-400/10 pointer-events-none"></div>
                   </div>
-                  {formData.pincode.length > 0 && formData.pincode.length !== 6 && (
-                    <p className="text-red-400 text-xs">Please enter a valid 6-digit pincode</p>
-                  )}
+                  {(formData.pincode.length > 0 && formData.pincode.length !== 6) || validationErrors.pincode ? (
+                    <p className="text-red-400 text-xs">{validationErrors.pincode || "Please enter a valid 6-digit pincode"}</p>
+                  ) : null}
                 </div>
               </div>
 
@@ -408,43 +450,36 @@ const FormSection = () => {
                 <div className="space-y-4">
                   <Label className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <Users className="w-4 h-4 text-yellow-400" />
-                    How would you like to join?
+                    How would you like to join? <span className="text-red-400">*</span>
                   </Label>
                   <RadioGroup value={formData.role} onValueChange={value => handleInputChange('role', value)} disabled={isSubmitting} className="space-y-3">
-                    <div className="flex items-center space-x-3 p-3 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300">
+                    <div className={cn(
+                      "flex items-center space-x-3 p-3 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300",
+                      validationErrors.role && "border-red-400"
+                    )}>
                       <RadioGroupItem value="user" id="user" className="text-yellow-400" />
                       <Label htmlFor="user" className="text-gray-300 cursor-pointer">Join the Women's Safety Circle</Label>
                     </div>
-                    <div className="flex items-center space-x-3 p-3 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300">
+                    <div className={cn(
+                      "flex items-center space-x-3 p-3 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300",
+                      validationErrors.role && "border-red-400"
+                    )}>
                       <RadioGroupItem value="volunteer" id="volunteer" className="text-yellow-400" />
                       <Label htmlFor="volunteer" className="text-gray-300 cursor-pointer">Step up as a Guardian</Label>
                     </div>
-                    <div className="flex items-center space-x-3 p-3 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300">
+                    <div className={cn(
+                      "flex items-center space-x-3 p-3 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-yellow-400/50 transition-all duration-300",
+                      validationErrors.role && "border-red-400"
+                    )}>
                       <RadioGroupItem value="both" id="both" className="text-yellow-400" />
                       <Label htmlFor="both" className="text-gray-300 cursor-pointer">Both</Label>
                     </div>
                   </RadioGroup>
+                  {validationErrors.role && (
+                    <p className="text-red-400 text-xs">{validationErrors.role}</p>
+                  )}
                 </div>
 
-                {/* Email */}
-                <div className="space-y-3 group">
-                  <Label htmlFor="email" className="text-sm font-semibold text-gray-300 flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-yellow-400" />
-                    Would you like early access to the app?
-                  </Label>
-                  <div className="relative">
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="Enter your email" 
-                      value={formData.email} 
-                      onChange={e => handleInputChange('email', e.target.value)} 
-                      className="bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300" 
-                      disabled={isSubmitting} 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 to-yellow-400/0 rounded-xl transition-all duration-300 group-hover:from-yellow-500/10 group-hover:to-yellow-400/10 pointer-events-none"></div>
-                  </div>
-                </div>
 
                 {/* Opinion */}
                 <div className="space-y-3 group">
