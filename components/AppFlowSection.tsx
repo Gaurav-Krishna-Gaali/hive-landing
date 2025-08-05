@@ -6,27 +6,27 @@ const steps = [
   {
     type: "video",
     src: "videos/sarah_walking.mp4",
-    caption: "Sarah was returning late from her night shift at the hospital when she noticed someone following her through a dark alley. She quickly pulled out her phone and opened the Hive app.",
+    caption: "Shreya was returning late from her night shift at the hospital when she noticed someone following her through a dark alley. She quickly pulled out her phone and opened the Hive app.",
   },
   {
     type: "video",
     src: "videos/sarah_button_press.mp4",
-    caption: "With trembling fingers, Sarah sent an SOS distress signal through the Hive app. The ripple effect began - starting with her closest volunteers and expanding outward.",
+    caption: "With trembling fingers, Shreya sent an SOS distress signal through the Hive app. The ripple effect began - starting with her closest volunteers and expanding outward.",
   },
   {
     type: "video",
     src: "videos/sarah_ripples.mp4",
-    caption: "The ripple reached 10 community members within 200 meters who immediately responded. Nearby residents, shop owners, and passersby coordinated the response while others called emergency services as backup.",
+    caption: "The alert reached nearby guardians. Within moments, three verified responders were by her side. Shreya wasn’t alone. Residents and passersby coordinated while others called for backup",
   },
   {
     type: "video",
     src: "videos/sarah_community.mp4",
-    caption: "Sarah could see on her app that help was approaching from multiple directions. The hyperlocal response made her feel instantly safer.",
+    caption: "Shreya could see on her app that help was approaching from multiple directions. The hyperlocal response made her feel instantly safer.",
   },
   {
     type: "video",
     src: "videos/hive_app.mp4",
-    caption: "Thanks to Hive's hyperlocal approach, Sarah made it home safely. The community proved that nearby neighbors are often the fastest first responders when seconds matter most.",
+    caption: "Shreya made it home safely. Thanks to the guardians who got there faster, just when it mattered.",
   },
 ];
 
