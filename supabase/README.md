@@ -32,8 +32,10 @@ After running the migration, you can view your `form_responses` table in the Sup
 
 ## Migration Files
 
-- `20250114000000_create_form_responses.sql` - Creates the main form responses table with all necessary columns and security policies.
+- `20250114000000_create_form_responses.sql` - Creates the initial form responses table with all columns.
 - `20250115000000_replace_occupation_with_pincode.sql` - Replaces occupation column with pincode column.
+- `20250116000000_cleanup_form_responses_schema.sql` - Removes unused columns (phone_number, date_of_birth, gender).
+- `20250116000001_create_clean_form_responses.sql` - Alternative: Creates a fresh table with only used fields (⚠️ deletes existing data).
 
 ## Environment Variables
 
@@ -51,14 +53,11 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 
 ## Table Schema
 
-The `form_responses` table includes:
+The `form_responses` table now includes only the fields currently used in the form:
 - `id` (UUID, primary key)
-- `full_name` (text, required)
-- `phone_number` (text, required)
-- `date_of_birth` (date, optional)
-- `gender` (text, optional)
-- `pincode` (text, optional) - 6-digit postal code
-- `role` (text, optional)
-- `email` (text, optional)
-- `opinion` (text, optional)
-- `created_at` (timestamp, auto-generated) 
+- `full_name` (text, required) - Full name of the person
+- `pincode` (text, required) - 6-digit postal code
+- `role` (text, required) - Role in movement: user/volunteer/both
+- `email` (text, required) - Email for updates
+- `opinion` (text, optional) - Personal thoughts/story
+- `created_at` (timestamp, auto-generated) - Submission timestamp 

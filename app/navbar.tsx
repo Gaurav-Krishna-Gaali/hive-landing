@@ -24,7 +24,7 @@ export function NavbarDemo() {
       link: "#pricing",
     },
     {
-      name: "Contact",
+      name: "Team",
       link: "#contact",
     },
   ];
@@ -51,7 +51,7 @@ export function NavbarDemo() {
               variant="secondary"
               onClick={() => trackButtonClick('join_waitlist_nav')}
             >
-              Join Waitlist
+              Join the Mission
             </NavbarButton>
           </div>
         </NavBody>
@@ -103,7 +103,7 @@ export function NavbarDemo() {
                 variant="secondary"
                 className="w-full"
               >
-                Join Waitlist
+                Join the Mission
               </NavbarButton>
             </div>
           </MobileNavMenu>

@@ -45,16 +45,18 @@ const FormSection = () => {
       errors.fullName = "Full name is required";
     }
     
-    if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = "Phone number is required";
-    }
-    
     if (!formData.pincode.trim() || formData.pincode.length !== 6) {
       errors.pincode = "Please enter a valid 6-digit pincode";
     }
     
     if (!formData.role) {
       errors.role = "Please select your role";
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = "Please enter a valid email address";
     }
     
     // If there are validation errors, set them and return
@@ -73,9 +75,6 @@ const FormSection = () => {
     try {
       const insertData = {
         full_name: formData.fullName,
-        phone_number: formData.phoneNumber,
-        date_of_birth: formData.dateOfBirth ? format(formData.dateOfBirth, 'yyyy-MM-dd') : null,
-        gender: formData.gender || null,
         pincode: formData.pincode || null,
         role: formData.role || null,
         email: formData.email || null,
@@ -106,7 +105,6 @@ const FormSection = () => {
       trackFormSubmission('hive_signup', {
         role: formData.role,
         pincode: formData.pincode,
-        gender: formData.gender,
         has_email: !!formData.email,
         has_opinion: !!formData.opinion
       });
@@ -115,10 +113,8 @@ const FormSection = () => {
       if (formData.email) {
         identifyUser(formData.email, {
           name: formData.fullName,
-          phone: formData.phoneNumber,
           role: formData.role,
-          pincode: formData.pincode,
-          gender: formData.gender
+          pincode: formData.pincode
         });
       }
 
@@ -311,7 +307,7 @@ const FormSection = () => {
                 </div>
 
                 {/* Phone Number */}
-                <div className="space-y-3 group">
+                {/* <div className="space-y-3 group">
                   <Label htmlFor="phoneNumber" className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <Phone className="w-4 h-4 text-yellow-400" />
                     Phone Number <span className="text-red-400">*</span>
@@ -335,10 +331,10 @@ const FormSection = () => {
                   {validationErrors.phoneNumber && (
                     <p className="text-red-400 text-xs">{validationErrors.phoneNumber}</p>
                   )}
-                </div>
+                </div> */}
 
                 {/* Date of Birth */}
-                <div className="space-y-3 group">
+                {/* <div className="space-y-3 group">
                   <Label className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <CalendarIcon className="w-4 h-4 text-yellow-400" />
                     Date of Birth
@@ -370,10 +366,10 @@ const FormSection = () => {
                       />
                     </PopoverContent>
                   </Popover>
-                </div>
+                </div> */}
 
                 {/* Gender */}
-                <div className="space-y-3 group">
+                {/* <div className="space-y-3 group">
                   <Label className="text-sm font-semibold text-gray-300 flex items-center gap-2">
                     <User className="w-4 h-4 text-yellow-400" />
                     Gender
@@ -389,6 +385,34 @@ const FormSection = () => {
                       <SelectItem value="prefer-not-to-say" className="text-white hover:bg-gray-800 focus:bg-gray-800 hover:text-white focus:text-white data-[highlighted]:text-white data-[highlighted]:bg-gray-800">Prefer not to say</SelectItem>
                     </SelectContent>
                   </Select>
+                </div> */}
+
+                
+                {/* Email */}
+                <div className="space-y-3 group">
+                  <Label htmlFor="email" className="text-sm font-semibold text-gray-300 flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-yellow-400" />
+                    Your email? <span className="text-red-400">*</span>
+                  </Label>
+                  <div className="relative">
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="Enter your email" 
+                      value={formData.email} 
+                      onChange={e => handleInputChange('email', e.target.value)} 
+                      className={cn(
+                        "bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300",
+                        validationErrors.email && "border-red-400 focus:border-red-400 focus:ring-red-400/20"
+                      )}
+                      required 
+                      disabled={isSubmitting} 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 to-yellow-400/0 rounded-xl transition-all duration-300 group-hover:from-yellow-500/10 group-hover:to-yellow-400/10 pointer-events-none"></div>
+                  </div>
+                  {validationErrors.email && (
+                    <p className="text-red-400 text-xs">{validationErrors.email}</p>
+                  )}
                 </div>
 
                 {/* Pincode */}
@@ -456,25 +480,6 @@ const FormSection = () => {
                   )}
                 </div>
 
-                {/* Email */}
-                <div className="space-y-3 group">
-                  <Label htmlFor="email" className="text-sm font-semibold text-gray-300 flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-yellow-400" />
-                    Would you like early access to the app?
-                  </Label>
-                  <div className="relative">
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="Enter your email" 
-                      value={formData.email} 
-                      onChange={e => handleInputChange('email', e.target.value)} 
-                      className="bg-gray-800/50 border-gray-600 text-white h-12 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300" 
-                      disabled={isSubmitting} 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 to-yellow-400/0 rounded-xl transition-all duration-300 group-hover:from-yellow-500/10 group-hover:to-yellow-400/10 pointer-events-none"></div>
-                  </div>
-                </div>
 
                 {/* Opinion */}
                 <div className="space-y-3 group">
